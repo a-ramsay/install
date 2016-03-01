@@ -22,7 +22,7 @@ function install_createVolumes {
 
    # we need the user id for the account that the image uses.
    local USERID=$(getUSERID "$IMAGENAME")
-   if [ -z "$USERID" ] || [ "${USERID}" -eq 0 ]; then die "Internal error - USERID for image is not a normal user." ; fi
+   if [ -z "$USERID" ]; then die "Internal error - USERID for image is not a normal user." ; fi
 
    if [ -v VOLUMES ]; then
       for i in "${!DOCKERVOLS[@]}"; do
